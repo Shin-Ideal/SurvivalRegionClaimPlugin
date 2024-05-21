@@ -2,3 +2,4 @@
 blockprice: 0.0625 #diamond
 regionlimit: 10 #in a world
 removereturnpricemultiplier: 0.0
+worldblacklist: [ ]

@@ -23,6 +23,8 @@ import com.github.shin_ideal.survivalregionclaimplugin.Listeners.WandListener;
 import com.github.shin_ideal.survivalregionclaimplugin.TabCompleters.PlayerRegionTabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
+
 public final class SurvivalRegionClaimPlugin extends JavaPlugin {
 
     private static SurvivalRegionClaimPlugin Instance;
@@ -30,6 +32,7 @@ public final class SurvivalRegionClaimPlugin extends JavaPlugin {
     private double blockPrice;
     private int regionLimit;
     private double removeReturnPriceMultiplier;
+    private List<String> worldBlackList;
 
     public static SurvivalRegionClaimPlugin getInstance() {
         return Instance;
@@ -57,6 +60,7 @@ public final class SurvivalRegionClaimPlugin extends JavaPlugin {
         blockPrice = getConfig().getDouble("blockprice", 0.0625);
         regionLimit = getConfig().getInt("regionlimit", 0);
         removeReturnPriceMultiplier = getConfig().getDouble("removereturnpricemultiplier", 0.0);
+        worldBlackList = getConfig().getStringList("worldblacklist");
     }
 
     private void registerListeners() {
@@ -81,5 +85,9 @@ public final class SurvivalRegionClaimPlugin extends JavaPlugin {
 
     public double getRemoveReturnPriceMultiplier() {
         return removeReturnPriceMultiplier;
+    }
+
+    public List<String> getWorldBlackList() {
+        return worldBlackList;
     }
 }

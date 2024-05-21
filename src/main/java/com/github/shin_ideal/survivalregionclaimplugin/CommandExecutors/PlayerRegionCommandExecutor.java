@@ -102,6 +102,10 @@ public class PlayerRegionCommandExecutor implements CommandExecutor {
             case 2:
                 switch (args[0]) {
                     case "claim":
+                        if (Instance.getWorldBlackList().contains(player.getWorld().getName())) {
+                            sender.sendMessage(ChatColor.RED + "Cannot claim in this world.");
+                            return false;
+                        }
                         int regionCount = 0;
                         for (String name : regionManager.getRegions().keySet()) {
                             if (regionManager.getRegions().get(name).getOwners().contains(player.getUniqueId())) {
