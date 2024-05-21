@@ -1,0 +1,18 @@
+name: SurvivalRegionClaimPlugin
+version: '${project.version}'
+main: com.github.shin_ideal.survivalregionclaimplugin.SurvivalRegionClaimPlugin
+author: Shin
+depend:
+  - WorldEdit
+  - WorldGuard
+
+commands:
+  playerregion:
+    description: playerregioncommand
+    aliases: [ prg,playerrg ]
+    permission: survivalregionclaimplugin.commands.playerregion
+
+permissions:
+  survivalregionclaimplugin.commands.playerregion:
+    description: playerregioncommand
+    default: true
