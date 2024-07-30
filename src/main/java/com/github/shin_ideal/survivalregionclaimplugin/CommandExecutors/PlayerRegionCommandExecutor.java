@@ -42,11 +42,13 @@ public class PlayerRegionCommandExecutor implements CommandExecutor {
     private final SurvivalRegionClaimPlugin Instance;
     private final int LOCATIONYMIN;
     private final int LOCATIONYMAX;
+    private final ItemStack DIAMONDMODEL;
 
     public PlayerRegionCommandExecutor() {
         Instance = SurvivalRegionClaimPlugin.getInstance();
         LOCATIONYMIN = 0;
         LOCATIONYMAX = 255;
+        DIAMONDMODEL = new ItemStack(Material.DIAMOND);
     }
 
     @Override
@@ -118,7 +120,7 @@ public class PlayerRegionCommandExecutor implements CommandExecutor {
                         }
                         int diamondAmount = 0;
                         for (ItemStack item : player.getInventory().getContents()) {
-                            if (item != null && item.getType().equals(Material.DIAMOND)) {
+                            if (DIAMONDMODEL.isSimilar(item)) {
                                 diamondAmount += item.getAmount();
                             }
                         }
