@@ -21,6 +21,7 @@ package com.github.shin_ideal.survivalregionclaimplugin;
 import com.github.shin_ideal.survivalregionclaimplugin.CommandExecutors.PlayerRegionCommandExecutor;
 import com.github.shin_ideal.survivalregionclaimplugin.Listeners.WandListener;
 import com.github.shin_ideal.survivalregionclaimplugin.TabCompleters.PlayerRegionTabCompleter;
+import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public final class SurvivalRegionClaimPlugin extends JavaPlugin {
     private int regionLimit;
     private double removeReturnPriceMultiplier;
     private List<String> worldBlackList;
+    private Material wandType;
 
     public static SurvivalRegionClaimPlugin getInstance() {
         return Instance;
@@ -61,6 +63,7 @@ public final class SurvivalRegionClaimPlugin extends JavaPlugin {
         regionLimit = getConfig().getInt("regionlimit", 0);
         removeReturnPriceMultiplier = getConfig().getDouble("removereturnpricemultiplier", 0.0);
         worldBlackList = getConfig().getStringList("worldblacklist");
+        wandType = Material.getMaterial(getConfig().getString("wandtype", "GOLD_AXE"));
     }
 
     private void registerListeners() {
@@ -89,5 +92,9 @@ public final class SurvivalRegionClaimPlugin extends JavaPlugin {
 
     public List<String> getWorldBlackList() {
         return worldBlackList;
+    }
+
+    public Material getWandType() {
+        return wandType;
     }
 }

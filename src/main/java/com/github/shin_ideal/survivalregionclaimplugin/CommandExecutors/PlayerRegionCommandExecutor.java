@@ -74,7 +74,7 @@ public class PlayerRegionCommandExecutor implements CommandExecutor {
                         playerData.setWandMode(!playerData.isWandMode());
                         sender.sendMessage(ChatColor.DARK_PURPLE + "WandMode is " + playerData.isWandMode());
                         if (playerData.isWandMode()) {
-                            sender.sendMessage(ChatColor.DARK_GREEN + "Left/Right Click with GoldAxe.");
+                            sender.sendMessage(ChatColor.DARK_GREEN + "Left/Right Click with " + Instance.getWandType().name() + ".");
                         }
                         break;
                     case "list":

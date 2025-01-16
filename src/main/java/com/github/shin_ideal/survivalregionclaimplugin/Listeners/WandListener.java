@@ -19,9 +19,9 @@
 package com.github.shin_ideal.survivalregionclaimplugin.Listeners;
 
 import com.github.shin_ideal.survivalregionclaimplugin.PlayerData;
+import com.github.shin_ideal.survivalregionclaimplugin.SurvivalRegionClaimPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,6 +29,13 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class WandListener implements Listener {
+
+    private final SurvivalRegionClaimPlugin Instance;
+
+    public WandListener() {
+        Instance = SurvivalRegionClaimPlugin.getInstance();
+    }
+
     @EventHandler
     public void onWand(PlayerInteractEvent event) {
         Player player = event.getPlayer();
@@ -39,7 +46,7 @@ public class WandListener implements Listener {
             return;
         }
 
-        if (!player.getPlayer().getInventory().getItemInHand().getType().equals(Material.GOLD_AXE)) {
+        if (!player.getPlayer().getInventory().getItemInHand().getType().equals(Instance.getWandType())) {
             return;
         }
 
