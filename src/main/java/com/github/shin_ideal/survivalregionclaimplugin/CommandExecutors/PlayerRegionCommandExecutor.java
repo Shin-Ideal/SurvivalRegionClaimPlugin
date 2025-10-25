@@ -130,6 +130,7 @@ public class PlayerRegionCommandExecutor implements CommandExecutor {
                         }
                         if (regionManager.hasRegion(args[1])) {
                             sender.sendMessage(ChatColor.RED + "Cannot use this name.");
+                            return false;
                         }
                         x = Math.abs(playerData.getPos(1).getBlockX() - playerData.getPos(2).getBlockX());
                         z = Math.abs(playerData.getPos(1).getBlockZ() - playerData.getPos(2).getBlockZ());
